@@ -1,0 +1,318 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>REvision</title>
+    
+    <!-- GSAP Core + ScrollTrigger + ScrollSmoother -->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.2/gsap.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.2/ScrollTrigger.min.js"></script>
+    <script src="ScrollSmoother.min.js"></script>
+
+    <!-- Import map for ES modules -->
+    <script type="importmap">
+    {
+        "imports": {
+            "three": "https://cdn.jsdelivr.net/npm/three@0.157.0/build/three.module.js",
+            "three/addons/": "https://cdn.jsdelivr.net/npm/three@0.157.0/examples/jsm/"
+        }
+    }
+    </script>
+
+    <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+    <div class="progress"></div>
+    
+    <!-- New Navigation -->
+    <nav class="new-nav">
+        <div class="nav-container">
+            <div class="nav-indicator"></div>
+            <div class="nav-links">
+                <a href="#" data-section="1">Info</a>
+                <a href="#" data-section="2">Features</a>
+                <a href="#" data-section="3">Privacy</a>
+                <a href="#" data-section="4">Contact</a>
+            </div>
+            <div class="logo">REvision®</div>
+        </div>
+    </nav>
+    
+    <!-- ScrollSmoother wrapper and content -->
+    <div id="smooth-wrapper">
+        <div id="smooth-content">
+            
+            <!-- Section 1: Hero/Intro -->
+            <section class="section hero-section" id="section1">
+                <div class="video-container-hero">
+                    <video id="intro-video" autoplay muted loop playsinline>
+                        <source src="intro.mp4" type="video/mp4">
+                    </video>
+                </div>
+            </section>
+            
+            <!-- Section 2: Product Features - GRID-ALIGNED LAYOUT -->
+            <section class="section features-section" id="section2">
+                <div class="section2-layout">
+                    <!-- Title section - left column, right-aligned -->
+                    <div class="title-section">
+                        <div class="feature-title-large" id="dynamic-title">REimagine</div>
+                    </div>
+                    
+                    <!-- Black container with eye model - center column -->
+                    <div id="eye-model-container">
+                        <!-- THREE.js will render here -->
+                    </div>
+                    
+                    <!-- Content container for features - right column -->
+                    <div class="features-content">
+                        <!-- Feature 1: reimagine -->
+                        <div class="feature-container" id="feature1">
+                            <div class="feature-number">01</div>
+                            <div class="feature-text-content">
+                                Step into a new era where sight extends beyond biology. REvision augments your natural vision with contextual intelligence and perfect recall, transforming how you interact with the world around you while feeling like a natural extension of your mind.
+                            </div>
+                        </div>
+                        
+                        <!-- Feature 2: reinvent -->
+                        <div class="feature-container" id="feature2">
+                            <div class="feature-number">02</div>
+                            <div class="feature-text-content">
+                                Break free from memory's limitations with a lens that captures everything your eyes touch. REvision creates a searchable library of your visual experience while maintaining the purity of natural sight, offering access to forgotten details through an interface so subtle it disappears into your perception.
+                            </div>
+                        </div>
+                        
+                        <!-- Feature 3: revision -->
+                        <div class="feature-container" id="feature3">
+                            <div class="feature-number">03</div>
+                            <div class="feature-text-content">
+                                Never lose another visual memory again. REvision's breakthrough technology doesn't just record what you see—it understands context, connections, and meaning behind every glance, making every moment permanently accessible yet personally private through humanity's first elegant solution to our inherently fallible memory.
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </section>
+            
+            <!-- Section 3: AR Features - All videos -->
+            <section class="section ar-features-section" id="section3">
+                <div class="ar-features">
+                    <div class="feature-item-container">
+                        <div class="feature-separator"></div>
+                        <div class="feature-item" data-feature="Name Recall">
+                            <div class="feature-content-wrapper">
+                                <span class="feature-text-part">Name Recall</span>
+                            </div>
+                            <span class="feature-number-ar">01</span>
+                        </div>
+                        <!-- 확장될 영역 - 비디오 -->
+                        <div class="expanded-content">
+                            <div class="expanded-content-inner">
+                                <video class="expanded-image" autoplay muted loop playsinline>
+                                    <source src="1.mp4" type="video/mp4">
+                                </video>
+                                <div class="expanded-controls">
+                                    <div class="arrow-container">
+                                        <div class="arrow"></div>
+                                    </div>
+                                    <p class="feature-description">Never forget a face again. Instantly recognize and displays names, context, and connection history for every person you meet, creating seamless social interactions.</p>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    
+                    <div class="feature-item-container">
+                        <div class="feature-separator"></div>
+                        <div class="feature-item" data-feature="Augmented Navigation">
+                            <div class="feature-content-wrapper">
+                                <span class="feature-text-part">Augmented Navigation</span>
+                            </div>
+                            <span class="feature-number-ar">02</span>
+                        </div>
+                        <!-- 확장될 영역 - 비디오 -->
+                        <div class="expanded-content">
+                            <div class="expanded-content-inner">
+                                <video class="expanded-image" autoplay muted loop playsinline>
+                                    <source src="2.mp4" type="video/mp4">
+                                </video>
+                                <div class="expanded-controls">
+                                    <div class="arrow-container">
+                                        <div class="arrow"></div>
+                                    </div>
+                                    <p class="feature-description">Navigate the world with confidence. Subtle directional cues and contextual information overlay your vision, providing intuitive guidance without disrupting your natural field of view.</p>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    
+                    <div class="feature-item-container">
+                        <div class="feature-separator"></div>
+                        <div class="feature-item" data-feature="Visual Focus">
+                            <div class="feature-content-wrapper">
+                                <span class="feature-text-part">Visual Focus</span>
+                            </div>
+                            <span class="feature-number-ar">03</span>
+                        </div>
+                        <!-- 확장될 영역 - 비디오 -->
+                        <div class="expanded-content">
+                            <div class="expanded-content-inner">
+                                <video class="expanded-image" autoplay muted loop playsinline>
+                                    <source src="3.mp4" type="video/mp4">
+                                </video>
+                                <div class="expanded-controls">
+                                    <div class="arrow-container">
+                                        <div class="arrow"></div>
+                                    </div>
+                                    <p class="feature-description">Prioritize what deserves attention. Advanced focus algorithms instantly sharpen objects of interest while softly blurring peripheral distractions, creating a crystal clear hierarchy of visual information that guides your eye naturally to what matters most in any environment.
+                            </div>
+                        </div>
+                    </div>
+                    
+                    <div class="feature-item-container">
+                        <div class="feature-separator"></div>
+                        <div class="feature-item" data-feature="Dynamic Magnification">
+                            <div class="feature-content-wrapper">
+                                <span class="feature-text-part">Dynamic Magnification</span>
+                            </div>
+                            <span class="feature-number-ar">04</span>
+                        </div>
+                        <!-- 확장될 영역 - 비디오 -->
+                        <div class="expanded-content">
+                            <div class="expanded-content-inner">
+                                <video class="expanded-image" autoplay muted loop playsinline>
+                                    <source src="4.mp4" type="video/mp4">
+                                </video>
+                                <div class="expanded-controls">
+                                    <div class="arrow-container">
+                                        <div class="arrow"></div>
+                                    </div>
+                                    <p class="feature-description">Bring distant details closer. Intelligent zoom technology automatically magnifies objects of interest while maintaining perfect clarity, allowing you to see fine details from any distance with natural eye movements.</p>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    
+                    <div class="feature-item-container">
+                        <div class="feature-separator"></div>
+                        <div class="feature-item" data-feature="Health Monitoring">
+                            <div class="feature-content-wrapper">
+                                <span class="feature-text-part">Health Monitoring</span>
+                            </div>
+                            <span class="feature-number-ar">05</span>
+                        </div>
+                        <!-- 확장될 영역 - 비디오 -->
+                        <div class="expanded-content">
+                            <div class="expanded-content-inner">
+                                <video class="expanded-image" autoplay muted loop playsinline>
+                                    <source src="5.mp4" type="video/mp4">
+                                </video>
+                                <div class="expanded-controls">
+                                    <div class="arrow-container">
+                                        <div class="arrow"></div>
+                                    </div>
+                                    <p class="feature-description">Monitor your wellness discreetly. Continuous biometric tracking provides insights into stress levels, fatigue, and overall health without interrupting your daily activities.</p>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="feature-separator"></div>
+                    </div>
+                </div>
+            </section>
+            
+            <!-- Section 4: Privacy Policy -->
+            <section class="section privacy-section" id="section4">
+                <div class="privacy-container">
+                    <div class="privacy-content">
+                        <p>Your vision is sacred. REvision operates on a zero-trust architecture where all visual data is encrypted at the photon level. Processing happens locally on the lens itself, with no constant connection to external servers. You maintain complete control over what's recorded, what's remembered, and what's shared. Even we can't access your visual feed.</p>
+                    </div>
+                    
+                    <div class="video-text-container">
+                        <div class="video-container">
+                            <video autoplay muted loop playsinline>
+                                <source src="work.mp4" type="video/mp4">
+                            </video>
+                        </div>
+                        <div class="text-container">
+                            <p>Isolated development, compartmentalized security: your data never leaves your control.</p>
+                        </div>
+                    </div>
+                    
+                    <div class="privacy-footer">
+                        <div class="re-footer">Re</div>
+                        <div class="construct-footer">calibrate</div>
+                    </div>
+                </div>
+            </section>
+            
+            <!-- Section 5: Contact - REDESIGNED -->
+            <section class="section connect-section" id="section5">
+                <div class="connect-text">
+                    <div class="connect-text-inner">Contact</div>
+                </div>
+                
+                <div class="contact-form-container">
+                    <form class="contact-form">
+                        <div class="form-group">
+                            <label for="name">Name</label>
+                            <input type="text" id="name" name="name" required>
+                        </div>
+                        
+                        <div class="form-group">
+                            <label for="email">Email</label>
+                            <input type="email" id="email" name="email" required>
+                        </div>
+                        
+                        <div class="form-group">
+                            <label for="phone">Phone</label>
+                            <input type="tel" id="phone" name="phone">
+                        </div>
+                        
+                        <div class="form-group">
+                            <label for="inquiry">Inquiry Type</label>
+                            <select id="inquiry" name="inquiry">
+                                <option value="">Select inquiry type</option>
+                                <option value="general">General Inquiry</option>
+                                <option value="product">Product Information</option>
+                                <option value="partnership">Partnership</option>
+                                <option value="support">Support</option>
+                                <option value="media">Media</option>
+                            </select>
+                        </div>
+                        
+                        <div class="form-group full-width">
+                            <label for="message">Message</label>
+                            <textarea id="message" name="message" required></textarea>
+                        </div>
+                        
+                        <div class="submit-container">
+                            <button type="submit" class="submit-btn">Submit</button>
+                        </div>
+                    </form>
+                </div>
+            </section>
+        </div>
+    </div>
+    
+    <!-- Preload videos for hover effects -->
+    <div style="display: none;">
+        <video preload="metadata" muted>
+            <source src="1.mp4" type="video/mp4">
+        </video>
+        <video preload="metadata" muted>
+            <source src="2.mp4" type="video/mp4">
+        </video>
+        <video preload="metadata" muted>
+            <source src="3.mp4" type="video/mp4">
+        </video>
+        <video preload="metadata" muted>
+            <source src="4.mp4" type="video/mp4">
+        </video>
+        <video preload="metadata" muted>
+            <source src="5.mp4" type="video/mp4">
+        </video>
+    </div>
+    
+    <!-- Load script as a module -->
+    <script type="module" src="script.js"></script>
+</body>
+</html>
