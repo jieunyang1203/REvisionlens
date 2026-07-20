@@ -729,12 +729,15 @@ document.addEventListener('DOMContentLoaded', function() {
         eyeRenderer.render(eyeScene, eyeCamera);
     }
     
-    // Initialize eye model after the page has loaded
+    // Start loading the 3D model right away, in parallel with the videos/fonts.
+    // (Previously this waited for window 'load', which only fires after ALL the
+    //  large mp4 videos finish downloading — so the 6MB eye.glb didn't even begin
+    //  downloading until ~35MB of video had loaded, making the 3D appear very late.)
+    console.log("Initializing eye model...");
+    initEyeModel();
+
+    // Refresh ScrollTrigger once everything (videos included) has settled.
     window.addEventListener('load', function() {
-        console.log("Initializing eye model...");
-        initEyeModel();
-        
-        // Force refresh scrolltrigger
         setTimeout(() => {
             ScrollTrigger.refresh();
         }, 200);
