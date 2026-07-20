@@ -458,7 +458,7 @@ body {
 
 .arrow {
     width: 400px;
-    height: 1.5px;
+    height: 1.7px;
     background-color: black;
     position: relative;
 }
@@ -471,8 +471,8 @@ body {
     transform: translateY(-50%) rotate(45deg);
     width: 20px; /* 화살표 대가리 크기 */
     height: 20px;
-    border-left: 1.5px solid black; /* 선과 같은 굵기 */
-    border-bottom: 1.5px solid black; /* 선과 같은 굵기 */
+    border-left: 1.7px solid black; /* 선과 같은 굵기 */
+    border-bottom: 1.7px solid black; /* 선과 같은 굵기 */
     border-right: none;
     border-top: none;
 }
@@ -536,7 +536,7 @@ body {
     height: 100%;
     display: grid;
     grid-template-columns: 1fr 1fr 1fr;
-    grid-template-rows: 1fr auto;
+    grid-template-rows: 1fr; /* footer row removed → collapse its leftover gap */
     gap: 40px;
     align-items: start;
     padding-top: 20px;

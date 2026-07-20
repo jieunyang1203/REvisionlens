@@ -346,7 +346,14 @@ document.addEventListener('DOMContentLoaded', function() {
         // Set the new expanded feature
         expandedFeature = container;
         container.classList.add('expanded');
-        
+
+        // Clear any leftover hover italic on the title — an expanded item should
+        // only be italic on hover, like the others. (mouseleave skips its reset
+        // once the item is expanded, so reset it explicitly here.)
+        clickedItem.querySelectorAll('.feature-text-part').forEach(textPart => {
+            textPart.style.fontStyle = 'normal';
+        });
+
         // Add expanded class to section for height adjustment
         arFeaturesSection.classList.add('has-expanded');
     }
