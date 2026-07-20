@@ -4,7 +4,14 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>REvision</title>
-    
+
+    <!-- Preload fonts so text (incl. the hover italic) is ready instantly,
+         instead of being fetched on first use. crossorigin is required for
+         font preloads even when same-origin. -->
+    <link rel="preload" href="NeueHaasGrotDisp-55Roman-Trial.woff2" as="font" type="font/woff2" crossorigin>
+    <link rel="preload" href="Canela-Thin-Trial.woff2" as="font" type="font/woff2" crossorigin>
+    <link rel="preload" href="Canela-ThinItalic-Trial.woff2" as="font" type="font/woff2" crossorigin>
+
     <!-- GSAP Core + ScrollTrigger + ScrollSmoother -->
     <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.2/gsap.min.js"></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.2/ScrollTrigger.min.js"></script>
@@ -23,8 +30,16 @@
     <link rel="stylesheet" href="styles.css">
 </head>
 <body>
+    <!-- Mobile block: this experience is desktop-only -->
+    <div class="mobile-gate">
+        <div class="mobile-gate-inner">
+            <div class="mobile-gate-logo">REvision®</div>
+            <p class="mobile-gate-msg">This experience is crafted for desktop.<br>Please visit on a larger screen.</p>
+        </div>
+    </div>
+
     <div class="progress"></div>
-    
+
     <!-- New Navigation -->
     <nav class="new-nav">
         <div class="nav-container">

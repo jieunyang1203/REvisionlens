@@ -4,6 +4,7 @@
          url('NeueHaasGrotDisp-55Roman-Trial.woff') format('woff');
     font-weight: normal;
     font-style: normal;
+    font-display: swap;
 }
 
 @font-face {
@@ -12,6 +13,7 @@
          url('NeueHaasGrotDisp-56Italic-Trial.woff') format('woff');
     font-weight: normal;
     font-style: italic;
+    font-display: swap;
 }
 
 @font-face {
@@ -20,6 +22,7 @@
          url('Canela-ThinItalic-Trial.woff') format('woff');
     font-weight: 100;
     font-style: italic;
+    font-display: swap;
 }
 
 @font-face {
@@ -28,6 +31,7 @@
          url('Canela-Thin-Trial.woff') format('woff');
     font-weight: 100;
     font-style: normal;
+    font-display: swap;
 }
 
 * {
@@ -975,5 +979,48 @@ body {
     .re-footer,
     .construct-footer {
         font-size: clamp(25px, 3vw, 45px);
+    }
+}
+
+/* ===== Mobile block — desktop-only experience ===== */
+.mobile-gate {
+    display: none;
+}
+
+/* Show the block on small screens OR on primary touch devices (phones/tablets,
+   incl. landscape). Desktop with a mouse never matches either condition. */
+@media (max-width: 768px), (hover: none) and (pointer: coarse) {
+    .mobile-gate {
+        display: flex;
+        position: fixed;
+        inset: 0;
+        z-index: 100000;
+        background-color: #fff;
+        align-items: center;
+        justify-content: center;
+        padding: 32px;
+        text-align: center;
+    }
+
+    .mobile-gate-logo {
+        font-family: 'NeueHaasGrotesk', sans-serif;
+        font-size: 20px;
+        color: #000;
+        margin-bottom: 20px;
+    }
+
+    .mobile-gate-msg {
+        font-family: 'Canela', serif;
+        font-weight: 100;
+        font-style: normal;
+        font-size: 26px;
+        line-height: 1.3;
+        color: #000;
+        margin: 0;
+    }
+
+    /* Hide the underlying experience so nothing peeks through or scrolls */
+    body {
+        overflow: hidden;
     }
 }
